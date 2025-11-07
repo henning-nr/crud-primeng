@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../app/demo/api/product';
+import { Product } from './models/product';
 import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { ProductService } from '../../../app/demo/service/product.service';
+import { PetService } from './services/product.service';
 
 @Component({
     templateUrl: './pet.component.html',
@@ -30,7 +30,7 @@ export class PetComponent implements OnInit {
 
     rowsPerPageOptions = [5, 10, 20];
 
-    constructor(private productService: ProductService, private messageService: MessageService) { }
+    constructor(private productService: PetService, private messageService: MessageService) { }
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
